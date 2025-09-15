@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Agentic Nexus Automated Trading Bot SDK"
+		}
+	],
+	"settings": {
+		"extension.prophet.sitecontext.selectedSiteID": "",
+		"codium.codeCompletion.enable": false
+	}
+}

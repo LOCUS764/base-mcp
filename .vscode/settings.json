@@ -1,0 +1,14 @@
+{
+    "extension.prophet.sitecontext.selectedSiteID": "",
+    "codium.codeCompletion.enable": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/CVS": true,
+        "**/.ruby-lsp": true,
+        ".mule": true
+    }
+}

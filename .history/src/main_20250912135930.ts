@@ -33,28 +33,7 @@ import {
 } from './utils.js';
 import { version } from './version.js';
 
-// === MCP REST API for Trading Bot Integration ===
-import express from 'express';
-import bodyParser from 'body-parser';
-
 export async function main() {
-  // Start REST API for trading bot integration
-  const app = express();
-  app.use(bodyParser.json());
-
-  // Endpoint to receive trading bot analytics and execution results
-  app.post('/api/trading-bot/report', (req, res) => {
-    const { type, payload } = req.body;
-    console.log('[MCP] Received trading bot report:', type, payload);
-    // Optionally, store or process the payload here (e.g., analytics, logging, trigger actions)
-    res.status(200).json({ status: 'ok' });
-  });
-
-  // Start the REST API server on port 4000 (or configurable)
-  const PORT = process.env.MCP_API_PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`MCP REST API listening on port ${PORT}`);
-  });
   dotenv.config();
   const apiKeyName =
     process.env.COINBASE_API_KEY_ID || process.env.COINBASE_API_KEY_NAME; // Previously, was called COINBASE_API_KEY_NAME
@@ -140,7 +119,7 @@ export async function main() {
   });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
-    console.error('Received ListToolsRequest - main.ts:122');
+    console.error('Received ListToolsRequest');
 
     return {
       tools,
@@ -170,8 +149,8 @@ export async function main() {
   });
 
   const transport = new StdioServerTransport();
-  console.error('Connecting server to transport... - main.ts:152');
+  console.error('Connecting server to transport...');
   await server.connect(transport);
 
-  console.error('Base MCP Server running on stdio - main.ts:155');
+  console.error('Base MCP Server running on stdio');
 }
