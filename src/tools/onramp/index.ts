@@ -4,7 +4,8 @@ import {
   EvmWalletProvider,
   type Network,
 } from '@coinbase/agentkit';
-import { getOnrampBuyUrl } from '@coinbase/onchainkit/fund';
+// import { getOnrampBuyUrl } from '@coinbase/onchainkit/fund';
+// Note: Temporarily disabled due to missing module
 import { base } from 'viem/chains';
 import type { z } from 'zod';
 import { GetOnrampAssetsSchema, OnrampSchema } from './schemas.js';
@@ -45,28 +46,31 @@ export class BaseMcpOnrampActionProvider extends ActionProvider<EvmWalletProvide
     walletProvider: EvmWalletProvider,
     args: z.infer<typeof OnrampSchema>,
   ) {
-    const { amountUsd, assetId } = args;
+    // TODO: Re-implement when getOnrampBuyUrl is available
+    throw new Error('Onramp functionality temporarily disabled - getOnrampBuyUrl not available');
+    
+    // const { amountUsd, assetId } = args;
 
-    if (!process.env.COINBASE_PROJECT_ID) {
-      throw new Error('COINBASE_PROJECT_ID is not set');
-    }
+    // if (!process.env.COINBASE_PROJECT_ID) {
+    //   throw new Error('COINBASE_PROJECT_ID is not set');
+    // }
 
-    const address = walletProvider.getAddress();
+    // const address = walletProvider.getAddress();
 
-    if (!address) {
-      throw new Error('No address found');
-    }
+    // if (!address) {
+    //   throw new Error('No address found');
+    // }
 
-    const onrampUrl = getOnrampBuyUrl({
-      projectId: process.env.COINBASE_PROJECT_ID,
-      addresses: { [address]: ['base'] }, // Onramp only available on Base
-      assets: [assetId],
-      presetFiatAmount: amountUsd,
-      fiatCurrency: 'USD',
-      redirectUrl: '',
-    });
+    // const onrampUrl = getOnrampBuyUrl({
+    //   projectId: process.env.COINBASE_PROJECT_ID,
+    //   addresses: { [address]: ['base'] }, // Onramp only available on Base
+    //   assets: [assetId],
+    //   presetFiatAmount: amountUsd,
+    //   fiatCurrency: 'USD',
+    //   redirectUrl: '',
+    // });
 
-    return onrampUrl;
+    // return onrampUrl;
   }
 
   supportsNetwork(network: Network): boolean {

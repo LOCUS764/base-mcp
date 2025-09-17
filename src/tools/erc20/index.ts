@@ -50,7 +50,7 @@ export class BaseMcpErc20ActionProvider extends ActionProvider<EvmWalletProvider
       functionName: 'decimals',
     });
 
-    return formatUnits(balance, decimals);
+    return formatUnits(balance as bigint, decimals as number);
   }
 
   @CreateAction({
@@ -78,7 +78,7 @@ export class BaseMcpErc20ActionProvider extends ActionProvider<EvmWalletProvider
       functionName: 'decimals',
     });
 
-    const atomicUnits = parseUnits(amount, decimals);
+    const atomicUnits = parseUnits(amount, decimals as number);
 
     const tx = await walletProvider.sendTransaction({
       to: contractAddress,

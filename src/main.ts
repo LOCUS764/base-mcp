@@ -27,6 +27,7 @@ import { baseMcpNftActionProvider } from './tools/nft/index.js';
 import { baseMcpOnrampActionProvider } from './tools/onramp/index.js';
 import { openRouterActionProvider } from './tools/open-router/index.js';
 import { baseMcpSwapActionProvider } from './tools/swap/index.js';
+import { baseMcpTradingActionProvider } from './tools/trading/index.js';
 import {
   generateSessionId,
   getActionProvidersWithRequiredEnvVars,
@@ -115,6 +116,7 @@ export async function main() {
       baseMcpNftActionProvider(),
       openRouterActionProvider(),
       baseMcpSwapActionProvider(),
+      baseMcpTradingActionProvider(),
     ],
   });
 
