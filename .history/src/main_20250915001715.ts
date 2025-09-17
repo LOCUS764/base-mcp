@@ -45,7 +45,7 @@ export async function main() {
   // Endpoint to receive trading bot analytics and execution results
   app.post('/api/trading-bot/report', (req, res) => {
     const { type, payload } = req.body;
-    console.log('[MCP] Received trading bot report: - main.ts:49', type, payload);
+    console.log('[MCP] Received trading bot report: - main.ts:48', type, payload);
     // Optionally, store or process the payload here (e.g., analytics, logging, trigger actions)
     res.status(200).json({ status: 'ok' });
   });
@@ -53,7 +53,7 @@ export async function main() {
   // Start the REST API server on port 4000 (or configurable)
   const PORT = process.env.MCP_API_PORT || 4000;
   app.listen(PORT, () => {
-    console.log(`MCP REST API listening on port ${PORT} - main.ts:57`);
+    console.log(`MCP REST API listening on port ${PORT} - main.ts:56`);
   });
   dotenv.config();
   const apiKeyName =
@@ -140,7 +140,7 @@ export async function main() {
   });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
-    console.error('Received ListToolsRequest - main.ts:144');
+    console.error('Received ListToolsRequest - main.ts:143');
 
     return {
       tools,
@@ -170,9 +170,8 @@ export async function main() {
   });
 
   const transport = new StdioServerTransport();
-  console.error('Connecting server to transport... - main.ts:174');
+  console.error('Connecting server to transport... - main.ts:173');
   await server.connect(transport);
 
-  console.error('Base MCP Server running on stdio - main.ts:177');
+  console.error('Base MCP Server running on stdio - main.ts:176');
 }
-
