@@ -27,7 +27,6 @@ import { baseMcpNftActionProvider } from './tools/nft/index.js';
 import { baseMcpOnrampActionProvider } from './tools/onramp/index.js';
 import { openRouterActionProvider } from './tools/open-router/index.js';
 import { baseMcpSwapActionProvider } from './tools/swap/index.js';
-import { baseMcpTradingActionProvider } from './tools/trading/index.js';
 import {
   generateSessionId,
   getActionProvidersWithRequiredEnvVars,
@@ -37,6 +36,7 @@ import { version } from './version.js';
 // === MCP REST API for Trading Bot Integration ===
 import express from 'express';
 import bodyParser from 'body-parser';
+import requests from 'requests';
 
 export async function main() {
   // Start REST API for trading bot integration
@@ -116,7 +116,6 @@ export async function main() {
       baseMcpNftActionProvider(),
       openRouterActionProvider(),
       baseMcpSwapActionProvider(),
-      baseMcpTradingActionProvider(),
     ],
   });
 
@@ -178,3 +177,22 @@ export async function main() {
   console.error('Base MCP Server running on stdio - main.ts:177');
 }
 
+export function report_to_mcp_server(
+  report_type,
+  payload,
+  mcp_url = 'http://localhost:4000/api/trading-bot/report',
+) {
+  try {
+    const data = { type: report_type, payload: payload };
+    const response = requests.post(mcp_url, { json: data, timeout: 5 });
+    if (response.status_code === 200) {
+      console.log(`[MCP] Report sent: ${report_type} - main.ts:189`);
+    } else {
+      console.log(
+        `[MCP] Failed to send report: ${response.status_code} ${response.text}`,
+      );
+    }
+  } catch (e) {
+    console.log(`[MCP] Error reporting to MCP server: ${e} - main.ts:196`);
+  }
+}

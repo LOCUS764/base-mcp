@@ -43,7 +43,7 @@ export class OpenRouterActionProvider extends ActionProvider<EvmWalletProvider> 
       args: [address],
     });
 
-    const parsedUnits = formatUnits(usdcBalance, USDC_DECIMALS);
+    const parsedUnits = formatUnits(usdcBalance as bigint, USDC_DECIMALS);
 
     if (Number(parsedUnits) < amountUsd) {
       throw new Error('Insufficient USDC balance');

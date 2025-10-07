@@ -46,7 +46,7 @@
     "@coinbase/agentkit": "^0.1.2",
     "@coinbase/agentkit-model-context-protocol": "^0.2.0",
     "@coinbase/coinbase-sdk": "^0.21.0",
-    "@coinbase/onchainkit": "^0.37.6",
+    "@coinbase/onchainkit": "^0.23.0",
     "@inquirer/prompts": "^7.4.0",
     "@modelcontextprotocol/sdk": "^1.6.1",
     "@privy-io/public-api": "^2.20.5",
