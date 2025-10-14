@@ -20,6 +20,7 @@ This MCP server extends any MCP client's capabilities by providing tools to do a
 - Onramp funds via [Coinbase](https://www.coinbase.com/developer-platform/products/onramp)
 - Manage ERC20 tokens
 - List and transfer NFTs (ERC721 and ERC1155)
+- Monitor and analyze portfolio holdings
 - Buy [OpenRouter](http://openrouter.ai/) credits with USDC
 - Resolve Farcaster usernames to Ethereum addresses
 
@@ -392,6 +393,30 @@ Parameters:
 Example query to Claude:
 
 > "Buy $20 worth of OpenRouter credits."
+
+### get_portfolio
+
+Gets the current portfolio for a wallet address, including all token balances and their USD values.
+
+Parameters:
+
+- `walletAddress`: The wallet address to get portfolio for (optional, defaults to current wallet)
+
+Example query to Claude:
+
+> "Show me my current portfolio." or "What tokens does wallet 0x1234... hold?"
+
+### analyze_portfolio
+
+Analyzes a portfolio and provides insights including diversification score, largest positions, and total value.
+
+Parameters:
+
+- `walletAddress`: The wallet address to analyze (optional, defaults to current wallet)
+
+Example query to Claude:
+
+> "Analyze my portfolio diversification." or "What's my largest holding?"
 
 ## Security Considerations
 

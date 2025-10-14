@@ -26,6 +26,7 @@ import { baseMcpMorphoActionProvider } from './tools/morpho/index.js';
 import { baseMcpNftActionProvider } from './tools/nft/index.js';
 import { baseMcpOnrampActionProvider } from './tools/onramp/index.js';
 import { openRouterActionProvider } from './tools/open-router/index.js';
+import { baseMcpPortfolioActionProvider } from './tools/portfolio/index.js';
 import { baseMcpSwapActionProvider } from './tools/swap/index.js';
 import {
   generateSessionId,
@@ -113,6 +114,7 @@ export async function main() {
       baseMcpOnrampActionProvider(),
       baseMcpErc20ActionProvider(),
       baseMcpNftActionProvider(),
+      baseMcpPortfolioActionProvider(),
       openRouterActionProvider(),
       baseMcpSwapActionProvider(),
     ],
