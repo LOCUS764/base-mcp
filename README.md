@@ -14,6 +14,7 @@ This MCP server extends any MCP client's capabilities by providing tools to do a
 - Retrieve wallet addresses
 - List wallet balances
 - Transfer funds between wallets
+- Trade assets using Coinbase Wallet
 - Deploy smart contracts
 - Interact with Morpho vaults for onchain lending
 - Call contract functions
@@ -245,6 +246,35 @@ Parameters:
 Example query to Claude:
 
 > "Transfer 0.01 ETH to 0x1234567890abcdef1234567890abcdef12345678."
+
+### trade
+
+Trades a specified amount of one asset for another asset using Coinbase's trading services.
+
+Parameters:
+
+- `amount`: The amount of the source asset to trade (in atomic units as a bigint)
+- `fromAssetId`: The asset ID to trade from (e.g., "eth", "usdc")
+- `toAssetId`: The asset ID to trade to (e.g., "eth", "usdc")
+
+Example query to Claude:
+
+> "Trade 0.0001 ETH for USDC."
+
+### swap_tokens
+
+Swaps tokens on Base using the 0x DEX aggregator API. This provides access to decentralized exchange liquidity and automatically handles ERC20 token approvals.
+
+Parameters:
+
+- `sellToken`: Token to sell - use "ETH" for native Ether or a contract address (e.g., USDC: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913")
+- `buyToken`: Token to buy - use "ETH" for native Ether or a contract address
+- `sellAmount`: Human-readable amount to sell (e.g., "0.01" for 0.01 ETH)
+- `slippageBps`: Optional slippage tolerance in basis points (default: 100 = 1%)
+
+Example query to Claude:
+
+> "Swap 0.01 ETH for USDC using the best rate."
 
 ### deploy-contract
 
