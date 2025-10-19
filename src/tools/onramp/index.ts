@@ -4,7 +4,7 @@ import {
   EvmWalletProvider,
   type Network,
 } from '@coinbase/agentkit';
-import { getOnrampBuyUrl } from '@coinbase/onchainkit/fund';
+// import { getOnrampBuyUrl } from '@coinbase/onchainkit/fund';
 import { base } from 'viem/chains';
 import type { z } from 'zod';
 import { GetOnrampAssetsSchema, OnrampSchema } from './schemas.js';
@@ -57,14 +57,16 @@ export class BaseMcpOnrampActionProvider extends ActionProvider<EvmWalletProvide
       throw new Error('No address found');
     }
 
-    const onrampUrl = getOnrampBuyUrl({
+    // Build onramp URL manually (getOnrampBuyUrl not available in current onchainkit version)
+    const params = new URLSearchParams({
       projectId: process.env.COINBASE_PROJECT_ID,
-      addresses: { [address]: ['base'] }, // Onramp only available on Base
-      assets: [assetId],
-      presetFiatAmount: amountUsd,
+      addresses: JSON.stringify({ [address]: ['base'] }),
+      assets: JSON.stringify([assetId]),
+      presetFiatAmount: amountUsd.toString(),
       fiatCurrency: 'USD',
-      redirectUrl: '',
     });
+    
+    const onrampUrl = `https://pay.coinbase.com/buy?${params.toString()}`;
 
     return onrampUrl;
   }
