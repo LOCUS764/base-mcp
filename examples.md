@@ -53,6 +53,47 @@ _Claude uses the `transfer-funds` tool with the following parameters:_
 
 **Claude:** I've initiated the transfer of 0.01 ETH to 0x9876543210abcdef9876543210abcdef98765432. The transaction has been submitted to the blockchain.
 
+### Trading Assets
+
+**You:** Trade 0.0001 ETH for USDC.
+
+**Claude:** I'll execute that trade for you.
+
+_Claude uses the `trade` tool with the following parameters:_
+
+- amount: 100000000000000 (0.0001 ETH in wei)
+- fromAssetId: eth
+- toAssetId: usdc
+
+**Claude:** I've successfully completed the trade of 0.0001 ETH for USDC. The transaction has been confirmed on the blockchain.
+
+**You:** Can you trade 10 USDC back to ETH?
+
+**Claude:** I'll execute that trade for you.
+
+_Claude uses the `trade` tool with the following parameters:_
+
+- amount: 10000000 (10 USDC with 6 decimals)
+- fromAssetId: usdc
+- toAssetId: eth
+
+**Claude:** I've successfully completed the trade of 10 USDC for ETH. The transaction has been confirmed on the blockchain.
+
+### Swapping Tokens via DEX
+
+**You:** Swap 0.01 ETH for USDC using the best decentralized exchange rate.
+
+**Claude:** I'll use the 0x DEX aggregator to find the best rate for swapping ETH to USDC.
+
+_Claude uses the `swap_tokens` tool with the following parameters:_
+
+- sellToken: ETH
+- buyToken: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (USDC on Base)
+- sellAmount: 0.01
+- slippageBps: 100 (1% slippage tolerance)
+
+**Claude:** I've successfully swapped 0.01 ETH for USDC using the best available rate on decentralized exchanges. The transaction hash is 0x... and you can view it on BaseScan.
+
 ### Deploying a Smart Contract
 
 **You:** Deploy a simple ERC20 token contract for me.
