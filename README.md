@@ -439,3 +439,15 @@ Basic contribution steps:
 5. Open a Pull Request
 
 Please make sure your code follows the existing style and includes appropriate tests.
+
+---
+
+## Support This Project
+
+Base MCP is built and maintained as part of a broader mission — using open tools and cooperative intelligence to make onchain technology accessible to everyone, moving toward a future where financial infrastructure works for all people, not just those who already have access.
+
+If this project has saved you time, helped you build something, or just made your AI setup a little more powerful, consider buying me a coffee. Every contribution goes directly toward more open-source development.
+
+**Cash App: [`$OGInterwebs`](https://cash.app/$OGInterwebs)**
+
+No pressure — stars, shares, and PRs are just as welcome. 🙏
