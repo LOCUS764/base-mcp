@@ -4,6 +4,9 @@
 
 [![npm version](https://img.shields.io/npm/v/base-mcp.svg)](https://www.npmjs.com/package/base-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Works with Claude](https://img.shields.io/badge/Works%20with-Claude-blueviolet)](https://claude.ai)
+[![Works with Cursor](https://img.shields.io/badge/Works%20with-Cursor-blue)](https://cursor.sh)
+[![Maintained by LOCUS764](https://img.shields.io/badge/Maintained%20by-LOCUS764-green)](https://github.com/LOCUS764)
 
 A Model Context Protocol (MCP) server that provides onchain tools for AI applications like Claude Desktop and Cursor, allowing them to interact with the Base Network and Coinbase API.
 
@@ -451,3 +454,4 @@ If this project has saved you time, helped you build something, or just made you
 **Cash App: [`$OGInterwebs`](https://cash.app/$OGInterwebs)**
 
 No pressure — stars, shares, and PRs are just as welcome. 🙏
+
